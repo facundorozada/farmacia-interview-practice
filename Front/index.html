@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicamentos</title>
+</head>
+<body>
+  <h1>Medicamentos</h1>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Principio activo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Laboratorio</th>
+        <th>Activo</th>
+      </tr>
+    </thead>
+
+    <tbody id="medicamentos"></tbody>
+  </table>
+
+  <script>
+    async function obtenerMedicamentos() {
+      const response = await fetch(
+        "https://localhost:7061/api/Medicamentos"
+      );
+
+      const medicamentos = await response.json();
+
+      const tbody = document.getElementById("medicamentos");
+
+      medicamentos.forEach(medicamento => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${medicamento.nombre}</td>
+            <td>${medicamento.principioActivo}</td>
+            <td>$${medicamento.precio}</td>
+            <td>${medicamento.stock}</td>
+            <td>${medicamento.laboratorioNombre}</td>
+            <td>${medicamento.activo ? "Sí" : "No"}</td>
+          </tr>
+        `;
+      });
+    }
+
+    obtenerMedicamentos();
+  </script>
+</body>
+</html>

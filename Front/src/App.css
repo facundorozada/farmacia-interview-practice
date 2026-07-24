@@ -1,0 +1,26 @@
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #cccccc;
+  text-align: left;
+}
+
+th {
+  background-color: #eeeeee;
+}
